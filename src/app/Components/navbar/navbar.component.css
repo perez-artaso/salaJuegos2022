@@ -1,0 +1,17 @@
+.navbar-customization {
+    background-color:  #E6E0BB !important;
+    border-bottom: .1rem solid #0D0F45 !important;
+}
+
+.nav-link-customization {
+    color: #0D0F45;
+}
+
+.active {
+    color: #0D0F45 !important;
+    font-family: orbitron-black;
+}
+
+.navbar-toggler {
+    background-color: #0D0F45;
+}
