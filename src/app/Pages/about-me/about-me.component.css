@@ -1,0 +1,12 @@
+:root {
+    --main-color: #E6E0BB;
+    --main-contrast: #0D0F45;
+}
+
+.card {
+    background-color: #E6E0BB;
+}
+
+h1 {
+    text-align: center;
+}

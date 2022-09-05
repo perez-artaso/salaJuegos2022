@@ -12,13 +12,17 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { LoginFormComponent } from './Components/login-form/login-form.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { AboutMeComponent } from './Pages/about-me/about-me.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    HomeComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,
