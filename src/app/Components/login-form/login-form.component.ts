@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
+import { LoginLogsService } from 'src/app/Services/login-logs.service';
+import { LoginLog } from 'src/app/Models/login-log';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  _email: string = "";
+  _password: string = "";
 
-  ngOnInit(): void {
+  constructor(private auth: AuthService, private loginLogs: LoginLogsService, private router: Router) { }
+
+  ngOnInit(): void {}
+
+  login() {
+    this.auth.Login(this._email, this._password).then(
+      (res) => {
+        
+        this.loginLogs.addDocument(
+          new LoginLog (this._email, Date.now().toString()).getLiteralObjectRepresentation()
+        );
+
+        if ( res.user != null ) {
+          this.auth.SetCurrentUser(res.user);
+        }
+
+        this.router.navigate(["/home"]);
+
+      }
+    ).catch(
+      (err) => {
+        console.log(err)
+      }
+    );
   }
 
 }

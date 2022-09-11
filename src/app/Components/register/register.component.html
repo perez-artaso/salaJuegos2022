@@ -1,0 +1,25 @@
+<div class="login-container text-center">
+    <main class="form-signin w-100 m-auto">
+        <form>
+            <img class="mb-4" src="../../../assets/sign-in-logo.png" alt="" width="200" height="200">
+
+            <div class="form-floating mb-2">
+                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="this._email">
+                <label for="floatingInput">Email</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="this._password">
+                <label for="floatingPassword">Nueva Contraseña</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="password" name="passwordConfirmation" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="this._passwordConfirmation">
+                <label for="floatingPassword">Confirme Su Contraseña</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary mt-4 submit-customization" (click)="Register()">Registrarse</button>
+            <p class="mt-5 mb-3 text-muted">&copy; Ignacio Perez Artaso - 2022</p>
+        </form>
+    </main>    
+</div>

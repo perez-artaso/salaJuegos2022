@@ -4,15 +4,15 @@
             <img class="mb-4" src="../../../assets/rayo-espacial-logo-grande.png" alt="" width="200" height="200">
 
             <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="this._email">
             <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="this._password">
             <label for="floatingPassword">Password</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary mt-4 submit-customization" type="submit">Ingresar</button>
+            <button class="w-100 btn btn-lg btn-primary mt-4 submit-customization" (click)="this.login()">Ingresar</button>
             <p class="mt-5 mb-3 text-muted">&copy; Ignacio Perez Artaso - 2022</p>
         </form>
     </main>    

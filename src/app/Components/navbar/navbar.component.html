@@ -14,14 +14,26 @@
           <li class="nav-item">
             <a class="nav-link nav-link-customization" routerLink="/about-me">Quién Soy</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle nav-link-customization" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Quién Sos
+          <li class="nav-item dropdown" *ngIf="this.user != null; else noUser">
+            <a class="nav-link dropdown-toggle nav-link-customization" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{this.dropdownLabel}}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item nav-link-customization" href="#">Registrarse</a></li>
+              <li><a class="dropdown-item nav-link-customization" (click)="this.LogOut()">Salir</a></li>
             </ul>
           </li>
+          <ng-template #noUser>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle nav-link-customization" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{this.dropdownLabel}}
+              </a>
+              <ul class="dropdown-menu" *ngIf="this.user == null">
+                <li><a class="dropdown-item nav-link-customization" routerLink="/login">Login</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item nav-link-customization" routerLink="/register">Registrate</a></li>
+              </ul>
+            </li>
+          </ng-template>
         </ul>
       </div>
     </div>

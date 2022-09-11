@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
 
+  reveal: boolean[] = [false, false];
+
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  private revealElements (index: number): void {
+    
   }
 
 }
