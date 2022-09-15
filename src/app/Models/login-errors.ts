@@ -5,6 +5,8 @@ export class LoginErrors {
     INVALID_EMAIL: IUserError;
     WRONG_PASSWORD: IUserError;
     USER_NOT_FOUND: IUserError;
+    EMAIL_REQUIRED: IUserError;
+    PASSWORD_REQUIRED: IUserError;
     OTHER: IUserError;
 
     constructor () {
@@ -22,6 +24,16 @@ export class LoginErrors {
         this.USER_NOT_FOUND = {
             ocurred: false,
             message: "Usuario inexistente."
+        };
+
+        this.EMAIL_REQUIRED = {
+            ocurred: false,
+            message: "Email requerido."
+        };
+
+        this.PASSWORD_REQUIRED = {
+            ocurred: false,
+            message: "Contraseña requerida."
         };
 
         this.OTHER = {

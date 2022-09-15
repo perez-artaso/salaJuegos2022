@@ -38,20 +38,24 @@ export class RegisterComponent implements OnInit {
         
       ).catch(
         (err) => {
-          
-          if (err.code == "auth/email-already-in-use") {
-  
-            this.errors.EMAIL_EXISTS.ocurred = true;
-  
-          } else if (err.code == "auth/weak-password") {
-  
-            this.errors.WEAK_PASSWORD.ocurred = true;
-  
-          } else {
 
-            this.errors.OTHER.message = err.message;
-            this.errors.OTHER.ocurred = true;            
+          if (this.RequiredFieldsFilled()) {
+
+            if (err.code == "auth/email-already-in-use") {
   
+              this.errors.EMAIL_EXISTS.ocurred = true;
+    
+            } else if (err.code == "auth/weak-password") {
+    
+              this.errors.WEAK_PASSWORD.ocurred = true;
+    
+            } else {
+  
+              this.errors.OTHER.message = err.message;
+              this.errors.OTHER.ocurred = true;            
+    
+            }
+
           }
   
         }
@@ -62,6 +66,20 @@ export class RegisterComponent implements OnInit {
       this.errors.WRONG_PASSWORD_CONFIRMATION.ocurred = true;
 
     }    
+
+  }
+
+  RequiredFieldsFilled(): boolean {
+
+    if (this._email == "") {
+      this.errors.EMAIL_REQUIRED.ocurred = true;
+      return false;
+    } else if (this._password == "") {
+      this.errors.PASSWORD_REQUIRED.ocurred = true;
+      return false;
+    }
+
+    return true;
 
   }
 

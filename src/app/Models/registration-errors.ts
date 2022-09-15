@@ -5,6 +5,8 @@ export class RegistrationErrors {
     EMAIL_EXISTS: IUserError;
     WEAK_PASSWORD: IUserError;
     WRONG_PASSWORD_CONFIRMATION: IUserError;
+    EMAIL_REQUIRED: IUserError;
+    PASSWORD_REQUIRED: IUserError;
     OTHER: IUserError;
 
     constructor () {
@@ -22,6 +24,16 @@ export class RegistrationErrors {
         this.WRONG_PASSWORD_CONFIRMATION = {
             ocurred: false,
             message: "Las contraseñas ingresadas no coinciden."
+        };
+
+        this.EMAIL_REQUIRED = {
+            ocurred: false,
+            message: "Email requerido."
+        };
+
+        this.PASSWORD_REQUIRED = {
+            ocurred: false,
+            message: "Contraseña requerida."
         };
 
         this.OTHER = {

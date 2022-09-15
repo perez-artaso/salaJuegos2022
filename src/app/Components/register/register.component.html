@@ -24,6 +24,8 @@
                 <p class="m-0" *ngIf="this.errors.EMAIL_EXISTS.ocurred"> {{this.errors.EMAIL_EXISTS.message}} </p>
                 <p class="m-0" *ngIf="this.errors.WEAK_PASSWORD.ocurred"> {{this.errors.WEAK_PASSWORD.message}} </p>
                 <p class="m-0" *ngIf="this.errors.WRONG_PASSWORD_CONFIRMATION.ocurred"> {{this.errors.WRONG_PASSWORD_CONFIRMATION.message}} </p>
+                <p class="m-0" *ngIf="this.errors.EMAIL_REQUIRED.ocurred"> {{this.errors.EMAIL_REQUIRED.message}} </p>
+                <p class="m-0" *ngIf="this.errors.PASSWORD_REQUIRED.ocurred"> {{this.errors.PASSWORD_REQUIRED.message}} </p>
                 <p class="m-0" *ngIf="this.errors.OTHER.ocurred"> {{this.errors.OTHER.message}} </p>
             </div>
 
