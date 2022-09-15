@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="container mt-2">
+    <div class="row">
+        
+        <div class="col-3" *ngFor="let game of games">
+            <div class="card">
+                <img class="card-img-top align-self-center" src="{{ game._photo_url }}" alt="Acceso a juego">
+                <div class="card-body">
+                  
+                  <p class="card-text">{{game._game_description}}</p>
+                  <a routerLink="{{game._game_url}}" class="btn btn-primary">Jugar</a>
+                </div>
+              </div>
+        </div> 
+
+    </div>
+</div>

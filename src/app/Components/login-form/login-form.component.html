@@ -13,6 +13,15 @@
             </div>
 
             <button class="w-100 btn btn-lg btn-primary mt-4 submit-customization" (click)="this.login()">Ingresar</button>
+            <button class="w-100 btn btn-lg btn-primary mt-1 access-btn-customization" (click)="this.access()">Acceso Rápido</button>
+
+            <div class="alert alert-danger mt-5" role="alert" *ngIf="this.errors.HasError()">
+                <p class="m-0" *ngIf="this.errors.INVALID_EMAIL.ocurred"> {{this.errors.INVALID_EMAIL.message}} </p>
+                <p class="m-0" *ngIf="this.errors.WRONG_PASSWORD.ocurred"> {{this.errors.WRONG_PASSWORD.message}} </p>
+                <p class="m-0" *ngIf="this.errors.USER_NOT_FOUND.ocurred"> {{this.errors.USER_NOT_FOUND.message}} </p>
+                <p class="m-0" *ngIf="this.errors.OTHER.ocurred"> {{this.errors.OTHER.message}} </p>
+            </div>
+
             <p class="mt-5 mb-3 text-muted">&copy; Ignacio Perez Artaso - 2022</p>
         </form>
     </main>    

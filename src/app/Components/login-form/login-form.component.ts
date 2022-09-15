@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { LoginLogsService } from 'src/app/Services/login-logs.service';
 import { LoginLog } from 'src/app/Models/login-log';
 import { Router } from '@angular/router';
+import { LoginErrors } from 'src/app/Models/login-errors';
 
 @Component({
   selector: 'app-login-form',
@@ -13,6 +14,8 @@ export class LoginFormComponent implements OnInit {
 
   _email: string = "";
   _password: string = "";
+
+  errors: LoginErrors = new LoginErrors();
 
   constructor(private auth: AuthService, private loginLogs: LoginLogsService, private router: Router) { }
 
@@ -34,10 +37,38 @@ export class LoginFormComponent implements OnInit {
 
       }
     ).catch(
+
       (err) => {
-        console.log(err)
+
+        this.errors.ClearErrors();
+          
+        if (err.code == "auth/invalid-email") {
+
+          this.errors.INVALID_EMAIL.ocurred = true;
+
+        } else if (err.code == "auth/wrong-password") {
+
+          this.errors.WRONG_PASSWORD.ocurred = true;
+
+        }else if (err.code == "auth/user-not-found") {
+
+          this.errors.USER_NOT_FOUND.ocurred = true;
+
+        } else {
+
+          this.errors.OTHER.message = err.message;
+          this.errors.OTHER.ocurred = true;            
+
+        }
+
       }
+      
     );
+  }
+
+  access() {
+    this._email = "test_user@rayoespacial.com";
+    this._password = "123456";
   }
 
 }

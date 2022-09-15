@@ -28,6 +28,11 @@ export class RegisterComponent implements OnInit {
       this.auth.RegisterUser(this._email, this._password).then(
       
         (res) => {
+
+          if ( res.user != null ) {
+            this.auth.SetCurrentUser(res.user);
+          }
+          
           this.router.navigate(["/home"])
         }
         
