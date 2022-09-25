@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference  } from '@angular/fire/compat/firestore'
+import { Observable } from 'rxjs';
 import { LoginLog } from '../Models/login-log';
 
 @Injectable({
@@ -14,10 +15,20 @@ export class LoginLogsService {
     this.loginLogsCollection = firestore.collection(this.collectionPath);
   }
 
+  public getDocuments(): Observable<LoginLog[]> {
+    return this.loginLogsCollection.valueChanges({idField: 'id'});
+  }
+
   public addDocument(loginLog: LoginLog): Promise<DocumentReference<LoginLog>> {
     return this.loginLogsCollection.add(loginLog);
   }
 
+  public updateDocument(documentId: string, newValues: Object) {
+    return this.loginLogsCollection.doc(documentId).update(newValues);
+  }
 
+  public deleteDocument(documentId: string) {
+    return this.loginLogsCollection.doc(documentId).delete();
+  }
 
 }

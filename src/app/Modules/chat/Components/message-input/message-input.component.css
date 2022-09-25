@@ -1,0 +1,11 @@
+.message-input {
+
+}
+
+button {
+    width: 100%;
+}
+
+.disabledBtn:hover {
+    cursor: not-allowed;
+}

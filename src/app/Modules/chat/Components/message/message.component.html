@@ -1,0 +1,28 @@
+<div>
+    <div [ngClass]="{'input-row': !this.isFromCurrentUser, 'output-row': this.isFromCurrentUser}"  class="row">
+        <div class="col-10 col-md-8 col-lg-5 col-xxl-4">
+            <div class="user-info-input">{{this.message?.from}}</div>
+        </div>
+    </div>
+    <div [ngClass]="{'input-row': !this.isFromCurrentUser, 'output-row': this.isFromCurrentUser}" class="row">
+        <div class="col-10 col-md-8 col-lg-5 col-xxl-4">
+            <div class="message-date">{{this.message?.timestamp?.toString() | readableDateFromTimestamp}}</div>
+        </div>
+    </div>
+    <div [ngClass]="{'input-row': !this.isFromCurrentUser, 'output-row': this.isFromCurrentUser}" class="row">
+        <div class="col-10 col-md-8 col-lg-5 col-xxl-4">
+            <div [ngClass]="{'chat-message-input': !this.isFromCurrentUser, 'chat-message-output': this.isFromCurrentUser}">
+                <p>{{this.message?.message}}</p>
+            </div>
+        </div>    
+    </div>
+</div>
+
+<!--<div class="row output-row">
+    <div class="col-10 col-md-8 col-lg-5 col-xxl-4">
+        <div class="user-info-output">Julieta Lloret - 24/9/2022 15:58hs</div>
+        <div class="chat-message-output">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, delectus! Sit quos facilis cumque! 
+        </div>
+    </div>
+</div>-->

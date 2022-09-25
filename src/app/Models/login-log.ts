@@ -1,5 +1,6 @@
 export class LoginLog {
 
+    id: string = "";
     user_email: string;
     timestamp: string;
 

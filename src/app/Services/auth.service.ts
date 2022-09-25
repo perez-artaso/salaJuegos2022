@@ -10,7 +10,9 @@ export class AuthService {
   private currentUser: firebase.default.User | null = null;
   private notifier$: Subject<firebase.default.User | null> = new Subject();
 
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth) {
+    
+  }
 
   Login(email: string, password: string) {
     return this.auth.signInWithEmailAndPassword(email, password);
@@ -35,6 +37,10 @@ export class AuthService {
 
   GetCurrentUserDisplayName() {
     return this.currentUser?.displayName;
+  }
+
+  GetCurrentUserID() {
+    return this.currentUser?.uid;
   }
 
   IsUserLoggedIn(): boolean {

@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="message-window scrollbar-info">
+        <app-message 
+        *ngFor="let message of messages" 
+        [message]="message"
+        [isFromCurrentUser]="this.message.from == this.auth.GetCurrentUserEmail()"></app-message>
+        <div #chatEnd id="chat-end"></div>
+    </div>
+    <app-message-input [currentUserEmail]="this.auth.GetCurrentUserEmail()"></app-message-input>
+</div>

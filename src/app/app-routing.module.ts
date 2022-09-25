@@ -7,7 +7,7 @@ import { HomeComponent } from './Pages/home/home.component';
 
 const routes: Routes = [
   {
-    path: "", component: LoginFormComponent
+    path: "", redirectTo: 'chat', pathMatch: 'full'
   },
   {
     path: "about-me", component: AboutMeComponent
@@ -20,11 +20,14 @@ const routes: Routes = [
   },
   {
     path: "login", component: LoginFormComponent
+  },
+  {
+    path: "chat", loadChildren: () => import('./Modules/chat/chat.module').then(m=>m.ChatModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

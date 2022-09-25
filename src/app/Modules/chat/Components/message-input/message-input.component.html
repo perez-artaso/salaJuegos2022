@@ -1,0 +1,10 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-10 message-input form-group">
+            <input type="text" class="form-control" [(ngModel)]="this.messageText">
+        </div>
+        <div class="col-2">
+            <button class="btn btn-success" [ngClass]="{disabledBtn: this.messageText == ''}" [disabled]="this.messageText == ''" (click)="this.addMessage()">Enviar</button>
+        </div>
+    </div>
+</div>
