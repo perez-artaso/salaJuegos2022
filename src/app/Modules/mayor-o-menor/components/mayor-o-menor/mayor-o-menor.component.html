@@ -1,0 +1,31 @@
+<div id="conatiner">
+    <div id="cards-container">
+        <div class="mt-3" style="display: flex; justify-content: center;">
+            <app-card id="deck" style="text-align: center;"></app-card>
+        </div>
+        <div id="hit-me-and-message">
+            <ng-template [ngIf]="!turnEnded" [ngIfElse]="newTurnButton">
+                <button class="btn btn-danger mt-3" id="hit-me" (click)="makeGuess()">
+                    ¡Dame una!
+                </button>
+            </ng-template>
+            <ng-template #newTurnButton>
+                <button  class="btn btn-success" id="hit-me" (click)="newTurn()">
+                    Entendido, sigamos
+                </button>
+            </ng-template>    
+            <p [ngClass]="{'alert alert-danger': turnEnded && wrongGuess, 'alert alert-success': turnEnded && !wrongGuess}" id="message-board">
+                {{messageForUser}} <br>
+                Puntos: {{this.playerScore.score}}
+            </p>
+        </div>
+        <div class="mt-3" style="display: flex; margin-bottom: 2rem; justify-content: center;">
+            <app-card [card]="lastCard" [backTurned]="false" id="last-card" style="margin: 0"></app-card>
+            <app-card [card]="currentCard" [backTurned]="!revealCurrentCard" id="current-card" style="margin-left: 1rem"></app-card>
+        </div>
+    </div>
+    <div id="controllers-container" style="text-align: center">
+        <button class="btn" [ngClass]="{'btn-primary': higherSelected}" (click)="higherSelected = true">Mayor</button>
+        <button class="btn" [ngClass]="{'btn-primary': !higherSelected}" (click)="higherSelected = false">Menor</button>
+    </div>
+</div>

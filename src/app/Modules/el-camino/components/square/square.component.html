@@ -1,0 +1,7 @@
+<div>
+    <img *ngIf="isLightOn; else lightsOut" [ngClass]="setClasses()" [src]="roadBlock | roadblock">
+    <ng-template #lightsOut>
+        <img src="assets/fog.png" alt="fog">
+    </ng-template>
+    <img *ngIf="isPlayerHere" src="assets/car.png" id="playerChip">
+</div>

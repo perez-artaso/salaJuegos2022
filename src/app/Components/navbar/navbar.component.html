@@ -15,7 +15,18 @@
             <a class="nav-link nav-link-customization" routerLink="/about-me">Quién Soy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-customization" routerLink="/chat/chat-room">Chat</a>
+            <a class="nav-link nav-link-customization" *ngIf="this.user != null;" routerLink="/chat/chat-room">Chat</a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="this.user != null;">
+            <a class="nav-link dropdown-toggle nav-link-customization" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Juegos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item nav-link-customization" routerLink="/ahorcado">Ahorcado</a></li>
+              <li><a class="dropdown-item nav-link-customization" routerLink="/preguntados-banderas">Banderas</a></li>
+              <li><a class="dropdown-item nav-link-customization" routerLink="/mayor-o-menor">Mayor o menor</a></li>
+              <li><a class="dropdown-item nav-link-customization" routerLink="/el-camino">El camino</a></li>
+            </ul>
           </li>
           <li class="nav-item dropdown" *ngIf="this.user != null; else noUser">
             <a class="nav-link dropdown-toggle nav-link-customization" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,0 +1,5 @@
+<div style="display: flex;">
+    <app-card *ngFor="let card of deck" [card]="createCard(card.getNumber(), card.getSuit())">
+
+    </app-card>
+</div>

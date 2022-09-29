@@ -1,0 +1,27 @@
+<div *ngIf="this.options[0] != undefined" class="container mt-5">
+    <div class="row">
+        <div class="col-12 flagContainer">
+            <img [src]="this.selectedOption?.optionObject.flags.png" alt="flag-to-guess">
+        </div>
+    </div>
+    <div class="row align-items-center justify-content-center">
+        <div class="container">
+            <div (click)="this.onSelectedOption(this.options[i]?.optionObject.name.common)" *ngFor="let option of this.options; let i = index;" [ngClass]="{'correct': option?.status == 1, 'incorrect': option?.status == 2}" class="game-opt">
+                {{ this.options[i]?.optionObject.name.common }}
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="this.options[0].status != 0">
+        <div class="col-12 flagContainer">
+            <button class="btn btn-success" (click)="this.newTry()">SIGUIENTE</button>
+        </div>
+
+        <div class="col-12 flagContainer">
+            <h5 class="mt-5">Créditos Espaciales</h5>
+        </div>
+
+        <div class="col-12 flagContainer">
+            <h4 class="alert alert-info mt-1">{{this.playerScore.score}}</h4>
+        </div>
+    </div>
+</div>

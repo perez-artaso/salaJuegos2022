@@ -20,7 +20,7 @@ export class LoginFormComponent implements OnInit {
   constructor(private auth: AuthService, private loginLogs: LoginLogsService, private router: Router) { }
 
   ngOnInit(): void {
-    
+    if(this.auth.IsUserLoggedIn()) this.router.navigate(['/home']);
   }
 
   login() {

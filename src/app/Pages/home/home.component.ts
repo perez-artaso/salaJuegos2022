@@ -20,14 +20,19 @@ export class HomeComponent implements OnInit {
         "Ahorcado espacial"  
       ),
       new HomeGameWindow (
-        "/mayor-menor", "/assets/mayor-menor.png", 
+        "/mayor-o-menor", "/assets/mayor-menor.png", 
         "Una baraja creada en un planeta lejano. Sacalas de a una. La siguiente: ¿será mayor?, ¿será menor? Sólo un viajero intrépido conoce la respuesta.",
         "Mayor o menor"  
       ),
       new HomeGameWindow (
-        "/trivia", "/assets/trivia.png", 
-        "Demostrá cuánto sabés del espacio conocido.",
+        "/preguntados-banderas", "/assets/trivia.png", 
+        "¿Cuánto sabés de tu propio planeta? Demostralo en esta trivia de banderas.",
         "Trivia galáctica"  
+      ),
+      new HomeGameWindow (
+        "/el-camino", "/assets/elcamino.png", 
+        "Una dense niebla cae sobre la tierra. ¿Será tu memoria la que te salve de un destino fatal? Descubrilo en nuestro nuevo juego: El Camino.",
+        "El camino"  
       )
     );
   }
