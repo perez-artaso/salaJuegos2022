@@ -72,7 +72,7 @@ export class AhorcadoComponent implements OnInit {
 
         if (pScore.length == 0) {
 
-          const newScore = new AhorcadoScore( this.auth.GetCurrentUserID(), 0, Date.now().toString() );
+          const newScore = new AhorcadoScore( this.auth.GetCurrentUserID(), this.auth.GetCurrentUserEmail(), 0, Date.now().toString() );
 
           this.scores.addDocument(
             newScore.getLiteralObjectRepresentation()

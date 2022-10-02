@@ -1,0 +1,28 @@
+tr {
+    border-color: black;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.option {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.option:hover {
+    cursor: pointer;
+}
+
+.option:active {
+    transform: scale(.8);
+}
+
+.selected {
+    background-color: #0D0F45;
+    color: white;
+}

@@ -91,12 +91,12 @@ export class MayorOMenorComponent implements OnInit {
 
         if (pScore.length == 0) {
 
-          const newScore = new MOMScore( this.auth.GetCurrentUserID(), 0, Date.now().toString() );
+          const newScore = new MOMScore( this.auth.GetCurrentUserID(), this.auth.GetCurrentUserEmail(), 0, Date.now().toString() );
 
           this.scores.addDocument(
             newScore.getLiteralObjectRepresentation()
           ).then(
-            () => this.playerScore = newScore
+            () => this.initScore()
           );
 
         } else this.playerScore = pScore[0]

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="options">
+    <div class="option" [ngClass]="{'selected': this.selectedScores == this.ahorcado }" (click)="this.selectScoresToShow('ahorcado')">
+      Ahorcado
+    </div>
+    <div class="option" [ngClass]="{'selected': this.selectedScores == this.mom }" (click)="this.selectScoresToShow('mom')">
+      Mayor o menor
+    </div>
+    <div class="option" [ngClass]="{'selected': this.selectedScores == this.banderas }" (click)="this.selectScoresToShow('banderas')">
+      Banderas
+    </div>
+    <div class="option" [ngClass]="{'selected': this.selectedScores == this.camino }" (click)="this.selectScoresToShow('camino')">
+      El camino
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <table class="table mt-2">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Puntaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let score of selectedScores; let i = index;">
+            <th scope="row">{{i}}</th>
+            <td>{{ score.user_email }}</td>
+            <td>{{ score.score }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

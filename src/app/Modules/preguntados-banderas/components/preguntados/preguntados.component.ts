@@ -123,7 +123,7 @@ export class PreguntadosComponent implements OnInit {
 
         if (pScore.length == 0) {
 
-          const newScore = new BanderasScore( this.auth.GetCurrentUserID(), 0, Date.now().toString() );
+          const newScore = new BanderasScore( this.auth.GetCurrentUserID(), this.auth.GetCurrentUserEmail(), 0, Date.now().toString() );
 
           this.scores.addDocument(
             newScore.getLiteralObjectRepresentation()
