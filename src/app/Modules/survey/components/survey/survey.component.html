@@ -2,19 +2,19 @@
     <form [formGroup]="this.surveyForm">
         <div class="row">
           <div class="col">
-            <input [ngClass]="{'is-invalid': this.surveyForm.get('name')?.invalid && this.surveyForm.get('name')?.touched}" formControlName="name" type="text" class="form-control" placeholder="Nombre">
+            <input [ngClass]="{'is-invalid': this.surveyForm.get('name')?.invalid && this.surveyForm.get('name')?.touched && this.allHasBeenTouched() }" formControlName="name" type="text" class="form-control" placeholder="Nombre">
           </div>
           <div class="col">
-            <input [ngClass]="{'is-invalid': this.surveyForm.get('last_name')?.invalid && this.surveyForm.get('last_name')?.touched}" formControlName="last_name" type="text" class="form-control" placeholder="Apellido">
+            <input [ngClass]="{'is-invalid': this.surveyForm.get('last_name')?.invalid && this.surveyForm.get('last_name')?.touched && this.allHasBeenTouched() }" formControlName="last_name" type="text" class="form-control" placeholder="Apellido">
           </div>
         </div>
         <div class="row mt-3">
             <div class="col">
-                <input [ngClass]="{'is-invalid': this.surveyForm.get('phone_number')?.invalid && this.surveyForm.get('phone_number')?.touched}" formControlName="phone_number" class="form-control" type="text" placeholder="Teléfono">
+                <input [ngClass]="{'is-invalid': this.surveyForm.get('phone_number')?.invalid && this.surveyForm.get('phone_number')?.touched && this.allHasBeenTouched() }" formControlName="phone_number" class="form-control" type="text" placeholder="Teléfono">
             </div>
             <div class="col">
                 <div class="form-group">
-                    <select [ngClass]="{'is-invalid': this.surveyForm.get('favourite_game')?.invalid && this.surveyForm.get('favourite_game')?.touched}" formControlName="favourite_game" class="form-control" id="favourite-game">
+                    <select [ngClass]="{'is-invalid': this.surveyForm.get('favourite_game')?.invalid && this.surveyForm.get('favourite_game')?.touched && this.allHasBeenTouched() }" formControlName="favourite_game" class="form-control" id="favourite-game">
                       <option value="unselected" selected>Juego Favorito</option>
                       <option value="ahorcado">Ahorcado</option>
                       <option value="banderas">Banderas</option>
