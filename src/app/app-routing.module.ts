@@ -8,7 +8,7 @@ import { HomeComponent } from './Pages/home/home.component';
 
 const routes: Routes = [
   {
-    path: "", redirectTo: 'login', pathMatch: 'full'
+    path: "", redirectTo: 'home', pathMatch: 'full'
   },
   {
     path: "about-me", component: AboutMeComponent
@@ -38,7 +38,10 @@ const routes: Routes = [
     path: "el-camino", loadChildren: () => import('./Modules/el-camino/el-camino.module').then(m=>m.ElCaminoModule), canActivate: [AuthGuard]
   },
   {
-    path: "scores", loadChildren: () => import('./Modules/scores/scores.module').then(m=>m.ScoresModule)
+    path: "scores", loadChildren: () => import('./Modules/scores/scores.module').then(m=>m.ScoresModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'survey', loadChildren: () => import('./Modules/survey/survey.module').then(m=>m.SurveyModule)
   }
 ];
 
